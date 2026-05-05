@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Cart</h2>
+
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+
+{% for item in items %}
+    <div>
+        <p>{{ item.product.name }} - {{ item.quantity }}</p>
+        <p>${{ item.total_price }}</p>
+        <a href="{% url 'remove_from_cart' item.id %}">Remove</a>
+    </div>
+{% endfor %}
+
+<h3>Total: ${{ total }}</h3>
+
+<a href="{% url 'checkout' %}">Checkout</a>
+
+{% endblock %}
