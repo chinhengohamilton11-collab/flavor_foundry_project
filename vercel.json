@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "flavorfoundry/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "flavorfoundry/wsgi.py"
+    }
+  ]
+}
